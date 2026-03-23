@@ -30,20 +30,21 @@
 
 #include <stdio.h>
 
-int a[2] = {7, 4}; // a[0]=7, a[1]=4 → represents 47
-int b[2] = {5, 2}; // b[0]=5, b[1]=2 → represents 25
-int c[3];
-
-/* step 1 */
-int carry = 0;
-/* step 2 */
-int i = 0;
-
-size_t m = sizeof(a) / sizeof(a[0]);
-
-// int m = 2;
-
 int main() {
+  /* moved to local variables so we can easier to debug it */
+  int a[3] = {7, 4}; // a[0]=7, a[1]=4 → represents 47
+  int b[3] = {5, 2}; // b[0]=5, b[1]=2 → represents 25
+  int c[4];
+
+  /* step 1 */
+  int carry = 0;
+  /* step 2 */
+  int i = 0;
+
+  size_t m = sizeof(a) / sizeof(a[0]);
+
+  // int m = 2;
+
   printf("Program of Figure 1.2 exercise has started!");
 
   while (i <= (m - 1)) {
@@ -70,7 +71,7 @@ int main() {
 
   /* print out the final answer, c_m, c_m-1, c_m-2... c_0 */
   for (int j = m; j >= 0; j--) {
-    printf("c_%i %d,", j, c[j]);
+    printf("c_%i = %d,", j, c[j]);
   }
 
   return 0;
