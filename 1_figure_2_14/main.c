@@ -40,19 +40,36 @@ int main() {
   size_t n = sizeof(A) / sizeof(A[0]);
 
   int largest_so_far = A[0];
-  int location = 0;
+  int smallest_so_far = A[0];
+  int largest_location = 0;
+  int smallest_location = 0;
   int i = 1;
+  int j = 1;
 
   while (i < n) {
     if (A[i] > largest_so_far) {
       largest_so_far = A[i];
-      location = i;
+      // location = i + 1;
+      largest_location = i;
     }
 
     i += 1;
   }
 
-  printf("Values: %d, location: %d", largest_so_far, location);
+  while (j < n) {
+    if (A[j] < smallest_so_far) {
+      smallest_so_far = A[j];
+      // location = i + 1;
+      smallest_location = j;
+    }
+
+    j += 1;
+  }
+
+  printf("Largest values: %d, location: %d\n", largest_so_far,
+         largest_location);
+  printf("Smallest values: %d, location: %d\n", smallest_so_far,
+         smallest_location);
 
   return 0;
 }
